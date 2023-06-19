@@ -14,24 +14,13 @@ import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static entities.constants.Constants.*;
+import static entities.constants.Constants.Queries.*;
+import static entities.constants.Constants.SQLTypes.*;
 import static orm.MyConnector.getConnection;
 
 
 public class EntityManager<E> implements DBContext<E> {
-
-    private static final String INSET_QUERY_FORMAT = "INSERT INTO %s (%s) VALUES (%s)";
-    private static final String UPDATE_QUERY_BY_ID_FORMAT = "UPDATE %s e SET %s WHERE e.id = %d";
-    private static final String FIND_FIRST_WITH_CONDITION_QUERY = "SELECT * FROM %s %s LIMIT 1";
-    private static final String FIND_ALL_WITH_CONDITION_QUERY = "SELECT * FROM %s %s";
-    private static final String FIND_FIRST_QUERY = "SELECT * FROM %s LIMIT 1";
-    private static final String FIND_ALL_QUERY = "SELECT * FROM %s";
-
-    private static final String ID_COLUM_MISSING_MESSAGE = "Entity missing an Id column";
-    private static final String CLASS_MUST_BE_ENTITY_MESSAGE = "Class must be Entity";
-    private static final String UPDATE_VALUE_FORMAT = "%s = %s";
-
-    private static final String WHERE_KEY_WORD = "WHERE ";
-
     private final Connection connection;
 
     public EntityManager() throws SQLException {
@@ -118,18 +107,126 @@ public class EntityManager<E> implements DBContext<E> {
         return getPOJO(findFirstStatement, table);
     }
 
+    @Override
+    public void doCreate(Class<E> entity) throws SQLException {
+        final String tableName = getTableName(entity);
+
+        final List<KeyValuePair> fieldsAndTypes = getAllFieldsAndDataTypes(entity);
+
+        String fieldsWithTypesFormat = fieldsAndTypes.stream()
+                .map(keyValuePair -> String.format(CREATE_VALUE_FORMAT, keyValuePair.key, keyValuePair.value))
+                .collect(Collectors.joining(COMMA_SEPARATOR));
+
+        connection.prepareStatement(String.format(CREATE_TABLE_QUERY_FORMAT, tableName, fieldsWithTypesFormat))
+                .execute();
+    }
+
+    @Override
+    public void doAlter(Class<E> entity) throws SQLException {
+        final String tableName = getTableName(entity);
+
+        final String partialAddColumnsStatement = addColumnsStatementForNewFields(entity, tableName);
+
+        connection.prepareStatement(String.format(ALTER_TABLE_FORMAT,
+                        tableName,
+                        partialAddColumnsStatement))
+                .executeUpdate();
+    }
+
+    @Override
+    public void doDelete(E entity) throws SQLException, IllegalAccessException {
+        final String tableName = getTableName(entity.getClass());
+        final Field idField = getIdColumn(entity.getClass());
+        final String idColumnName = getSQLColumnName(idField);
+        final Object fieldValue = getFieldValue(entity, idField);
+
+        connection.prepareStatement(String.format(DELETE_RECORD_BY_CONDITION_FORMAT,
+                        tableName,
+                        idColumnName,
+                        fieldValue))
+                .executeUpdate();
+    }
+
+    Object getFieldValue(E entity, Field field) throws IllegalAccessException {
+        field.setAccessible(true);
+        return field.get(entity);
+    }
+
+    String addColumnsStatementForNewFields(Class<E> entity, String tableName) throws SQLException {
+        final Set<String> sqlColumnNames = getSQLColumnNames(tableName);
+        final List<Field> allFieldsWithoutId = getAllFieldsWithoutId(entity);
+
+        List<String> nonMatchingFields = new ArrayList<>();
+
+        for (Field field : allFieldsWithoutId) {
+            final String columnName = getSQLColumnName(field);
+
+            if (sqlColumnNames.contains(columnName)) continue;
+
+            final String columnType = getSQLType(field.getType());
+
+            final String partialAddStatement = String.format(ADD_COLUMN_FORMAT, columnName, columnType);
+
+            nonMatchingFields.add(partialAddStatement);
+        }
+
+        return String.join(COMMA_SEPARATOR, nonMatchingFields);
+    }
+
+    private Set<String> getSQLColumnNames(String tableName) throws SQLException {
+        Set<String> allFields = new HashSet<>();
+
+        final PreparedStatement getAllFieldsStatement = connection.prepareStatement(GET_ALL_COLUMN_NAMES_BY_TABLE_NAME);
+        getAllFieldsStatement.setString(1, tableName);
+
+        final ResultSet allFieldsResultSet = getAllFieldsStatement.executeQuery();
+
+        while (allFieldsResultSet.next()) {
+            allFields.add(allFieldsResultSet.getString(1));
+        }
+
+        return allFields;
+    }
+
+    private List<EntityManager.KeyValuePair> getAllFieldsAndDataTypes(Class<E> entity) {
+        return getAllFieldsWithoutId(entity)
+                .stream()
+                .map(f -> new EntityManager.KeyValuePair(getSQLColumnName(f), getSQLType(f.getType())))
+                .toList();
+    }
+
+    private String getSQLColumnName(Field field) {
+        return field.getAnnotationsByType(Column.class)[0].name();
+    }
+
+    private String getSQLType(Class<?> type) {
+        if (type == Integer.class || type == int.class || type == long.class || type == Long.class) {
+            return INT;
+        } else if (type == LocalDate.class) {
+            return DATE;
+        }
+
+        return VARCHAR;
+    }
+
+    private List<Field> getAllFieldsWithoutId(Class<E> entity) {
+        return Arrays.stream(entity.getDeclaredFields())
+                .filter(f -> !f.isAnnotationPresent(Id.class) && f.isAnnotationPresent(Column.class))
+                .toList();
+    }
+
     private boolean doInsert(E entity) throws SQLException {
         final String tableName = getTableName(entity.getClass());
 
-        final List<KeyValuePair> keyValuePairs = getKeyValuePairs(entity);
+        final List<EntityManager.KeyValuePair> keyValuePairs = getKeyValuePairs(entity);
 
         final String fields = keyValuePairs.stream()
-                .map(KeyValuePair::key)
-                .collect(Collectors.joining(","));
+                .map(EntityManager.KeyValuePair::key)
+                .collect(Collectors.joining(COMMA_SEPARATOR));
 
         final String values = keyValuePairs.stream()
-                .map(KeyValuePair::value)
-                .collect(Collectors.joining(","));
+                .map(EntityManager.KeyValuePair::value)
+                .collect(Collectors.joining(COMMA_SEPARATOR));
 
         final String insertQuery = String.format(INSET_QUERY_FORMAT, tableName, fields, values);
 
@@ -139,11 +236,11 @@ public class EntityManager<E> implements DBContext<E> {
     private boolean doUpdate(E entity, Field idColumn) throws SQLException, IllegalAccessException {
         final String tableName = getTableName(entity.getClass());
 
-        final List<KeyValuePair> keyValuePairs = getKeyValuePairs(entity);
+        final List<EntityManager.KeyValuePair> keyValuePairs = getKeyValuePairs(entity);
 
         final String updateValues = keyValuePairs.stream()
                 .map(keyValuePair -> String.format(UPDATE_VALUE_FORMAT, keyValuePair.key, keyValuePair.value))
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining(COMMA_SEPARATOR));
 
         final int idValue = Integer.parseInt(idColumn.get(entity).toString());
 
@@ -229,12 +326,12 @@ public class EntityManager<E> implements DBContext<E> {
         return annotationsByType[0].name();
     }
 
-    private List<KeyValuePair> getKeyValuePairs(E entity) {
+    private List<EntityManager.KeyValuePair> getKeyValuePairs(E entity) {
         final Class<?> aClass = entity.getClass();
 
         return Arrays.stream(aClass.getDeclaredFields())
                 .filter(f -> !f.isAnnotationPresent(Id.class) && f.isAnnotationPresent(Column.class))
-                .map(f -> new KeyValuePair(f.getAnnotationsByType(Column.class)[0].name(),
+                .map(f -> new EntityManager.KeyValuePair(f.getAnnotationsByType(Column.class)[0].name(),
                         mapFieldsToGivenType(f, entity)))
                 .collect(Collectors.toList());
     }
@@ -255,6 +352,6 @@ public class EntityManager<E> implements DBContext<E> {
                 : Objects.requireNonNull(o).toString();
     }
 
-    private record KeyValuePair(String key, String value) {
+    public record KeyValuePair(String key, String value) {
     }
 }

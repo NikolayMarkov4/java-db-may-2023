@@ -15,9 +15,9 @@ public interface DBContext<E> {
 
     E findFirst(Class<E> table, String where) throws SQLException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException;
 
-//    void doCreate(Class<E> entity) throws SQLException;
+    void doCreate(Class<E> entity) throws SQLException;
 
-//    void doAlter(Class<E> entity) throws SQLException;
+    void doAlter(Class<E> entity) throws SQLException;
 
-//    void doDelete(E entity) throws SQLException, IllegalAccessException;
+    void doDelete(E entity) throws SQLException, IllegalAccessException;
 }

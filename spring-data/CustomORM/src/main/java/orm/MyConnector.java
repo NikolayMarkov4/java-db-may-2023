@@ -17,7 +17,7 @@ enum MyConnector {
 
     private static final String USERNAME = "root";
     private static final String PASSWORD = "1234";
-    private static final String DATABASE_NAME = "";
+    private static final String DATABASE_NAME = "custom-orm-workshop";
 
     public static Connection getConnection() throws SQLException {
         createConnection();
