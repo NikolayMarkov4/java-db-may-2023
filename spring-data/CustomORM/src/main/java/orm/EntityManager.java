@@ -147,12 +147,12 @@ public class EntityManager<E> implements DBContext<E> {
                 .executeUpdate();
     }
 
-    Object getFieldValue(E entity, Field field) throws IllegalAccessException {
+    private Object getFieldValue(E entity, Field field) throws IllegalAccessException {
         field.setAccessible(true);
         return field.get(entity);
     }
 
-    String addColumnsStatementForNewFields(Class<E> entity, String tableName) throws SQLException {
+    private String addColumnsStatementForNewFields(Class<E> entity, String tableName) throws SQLException {
         final Set<String> sqlColumnNames = getSQLColumnNames(tableName);
         final List<Field> allFieldsWithoutId = getAllFieldsWithoutId(entity);
 
