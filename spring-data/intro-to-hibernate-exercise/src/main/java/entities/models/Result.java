@@ -3,8 +3,8 @@ package entities.models;
 import java.math.BigDecimal;
 
 public class Result {
-    String key;
-    BigDecimal value;
+    private String key;
+    private BigDecimal value;
 
     public Result(String key, BigDecimal value) {
         this.key = key;

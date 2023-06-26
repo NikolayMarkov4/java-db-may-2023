@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Gringotts" />
+        <module name="Football Betting" />
+        <module name="Sales" />
+        <module name="Bills Payment System" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Bills Payment System" target="17" />
+      <module name="Football Betting" target="17" />
+      <module name="Gringotts" target="17" />
+      <module name="Sales" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

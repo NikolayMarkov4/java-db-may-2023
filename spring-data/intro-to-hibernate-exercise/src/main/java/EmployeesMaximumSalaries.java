@@ -1,5 +1,7 @@
 import entities.models.Result;
 
+import java.math.BigDecimal;
+
 public class EmployeesMaximumSalaries {
     public static void main(String[] args) {
         // result with object array
