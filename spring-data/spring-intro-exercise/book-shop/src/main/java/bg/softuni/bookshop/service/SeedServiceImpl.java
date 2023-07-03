@@ -60,7 +60,7 @@ public class SeedServiceImpl implements SeedService {
                     String[] args = row.split("\\s+");
                     String title = Arrays.stream(args)
                             .skip(5)
-                            .collect(Collectors.joining());
+                            .collect(Collectors.joining(" "));
 
                     return Book.builder()
                             .author(this.authorService.getRandomAuthor())

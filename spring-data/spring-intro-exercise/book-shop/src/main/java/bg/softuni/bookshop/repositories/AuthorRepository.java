@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Optional;
 
 // creating the repository interface will create table in the database
 @Repository
@@ -14,5 +13,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 
     @Query("Select a from Author a order by size(a.books) ")
     List<Author> findAllDistinctOrderByBooks();
+
+    List<Author> findAllByFirstNameEndingWith(String suffix);
 
 }

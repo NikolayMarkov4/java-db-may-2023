@@ -64,14 +64,24 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     @Transactional
-    public List<Author> getAllAuthorsOrederByBooksDesc() {
+    public List<Author> getAllAuthorsOrderByBooksDesc() {
         final List<Author> authors = this.authorRepository
                 .findAllDistinctOrderByBooks();
 
         System.out.println(authors.stream()
                 .map(Author::getAuthorFullNameAndCountOfBooks)
                 .collect(Collectors.joining("\n")));
-//
-        return null;
+
+        return authors;
+    }
+
+    @Override
+    public List<Author> getAllByFirstNameEndingWith(String suffix) {
+        final List<Author> authors = this.authorRepository
+                .findAllByFirstNameEndingWith(suffix);
+
+        authors.forEach(a -> System.out.println(a.getAuthorFullName()));
+
+        return authors;
     }
 }

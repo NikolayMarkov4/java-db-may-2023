@@ -3,8 +3,6 @@ package bg.softuni.bookshop.domain.entities;
 import bg.softuni.bookshop.domain.enums.AgeRestriction;
 import bg.softuni.bookshop.domain.enums.EditionType;
 import jakarta.persistence.*;
-
-
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -49,6 +47,14 @@ public class Book extends BaseEntity {
 
     public String getBookTitleReleaseDateCopiesFormat() {
         return this.title + " " + this.releaseDate + " " + this.copies;
+    }
+
+    public String getBookTitleAndPriceFormat() {
+        return this.title + " - $" + this.price;
+    }
+
+    public String getBookTitleEditionTypeAndPrice() {
+        return this.title + " " + this.editionType.name() + " " + this.price;
     }
 
 }
