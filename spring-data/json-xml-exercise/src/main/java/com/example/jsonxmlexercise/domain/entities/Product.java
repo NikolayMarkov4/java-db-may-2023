@@ -1,7 +1,5 @@
 package com.example.jsonxmlexercise.domain.entities;
 
-import com.example.jsonxmlexercise.domain.models.ProductDto;
-import com.example.jsonxmlexercise.domain.models.ProductsSoldWithCountDto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

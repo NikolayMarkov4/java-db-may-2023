@@ -1,18 +1,19 @@
 package com.example.jsonxmlexercise.services.seed;
 
-import java.io.FileNotFoundException;
+import jakarta.xml.bind.JAXBException;
+
 import java.io.IOException;
 
 public interface SeedService {
-    void seedUsers() throws  IOException;
+    void seedUsers(String type) throws IOException, JAXBException;
 
-    void seedCategories() throws IOException;
+    void seedCategories(String type) throws IOException, JAXBException;
 
-    void seedProducts() throws IOException;
+    void seedProducts(String type) throws IOException, JAXBException;
 
-    default void seedAll() throws IOException {
-        seedUsers();
-        seedCategories();
-        seedProducts();
+    default void seedAll(String type) throws IOException, JAXBException {
+        seedUsers(type);
+        seedCategories(type);
+        seedProducts(type);
     }
 }

@@ -1,9 +1,9 @@
 package com.example.jsonxmlexercise.services.product;
 
-import com.example.jsonxmlexercise.domain.models.CategorySummaryModel;
-import com.example.jsonxmlexercise.domain.models.ProductBasicInfoWithSellerFullName;
-import com.example.jsonxmlexercise.repositories.CategoryRepository;
+import com.example.jsonxmlexercise.domain.models.product.ProductBasicInfoWithSellerFullName;
+import com.example.jsonxmlexercise.domain.models.product.wrappers.ProductBasicInfoWrapper;
 import com.example.jsonxmlexercise.repositories.ProductRepository;
+import jakarta.xml.bind.JAXBException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,23 +12,22 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import static com.example.jsonxmlexercise.constants.Paths.FIRST_JSON_PATH;
-import static com.example.jsonxmlexercise.constants.Paths.THIRD_JSON_PATH;
+import static com.example.jsonxmlexercise.constants.Paths.FIRST_XML_PATH;
 import static com.example.jsonxmlexercise.constants.Utils.writeIntoJsonFile;
+import static com.example.jsonxmlexercise.constants.Utils.writeIntoXmlFile;
 
 @Service
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
-    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public ProductServiceImpl(ProductRepository productRepository, CategoryRepository categoryRepository) {
+    public ProductServiceImpl(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.categoryRepository = categoryRepository;
     }
 
 
     @Override
-    public List<ProductBasicInfoWithSellerFullName> getProductsInRangeWithNoBuyer(BigDecimal lowBoundary, BigDecimal highBoundary) throws IOException {
+    public List<ProductBasicInfoWithSellerFullName> getProductsInRangeWithNoBuyer(BigDecimal lowBoundary, BigDecimal highBoundary) throws IOException, JAXBException {
         final List<ProductBasicInfoWithSellerFullName> products =
                 this.productRepository
                         .findAllByPriceBetweenAndBuyerIsNullOrderByPrice(lowBoundary, highBoundary)
@@ -36,17 +35,12 @@ public class ProductServiceImpl implements ProductService {
                         .map(ProductBasicInfoWithSellerFullName::getFromProduct)
                         .toList();
 
+        final ProductBasicInfoWrapper wrapper = new ProductBasicInfoWrapper(products);
+
         writeIntoJsonFile(products, FIRST_JSON_PATH);
+        writeIntoXmlFile(wrapper, FIRST_XML_PATH);
 
         return products;
     }
 
-    @Override
-    public List<CategorySummaryModel> getCategorySummary() throws IOException {
-        final List<CategorySummaryModel> categorySummary = this.categoryRepository.getCategorySummary();
-
-        writeIntoJsonFile(categorySummary, THIRD_JSON_PATH);
-
-        return categorySummary;
-    }
 }
