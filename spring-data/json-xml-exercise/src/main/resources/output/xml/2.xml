@@ -6,11 +6,6 @@
     <user last-name="Baker">
         <sold-products>
             <product>
-                <name>Prednisone</name>
-                <price>1285.99</price>
-                <buyer-last-name>Baker</buyer-last-name>
-            </product>
-            <product>
                 <name>Topex</name>
                 <price>1258.49</price>
                 <buyer-last-name>Baker</buyer-last-name>
@@ -18,6 +13,11 @@
             <product>
                 <name>Cefadroxil</name>
                 <price>1302.20</price>
+                <buyer-last-name>Baker</buyer-last-name>
+            </product>
+            <product>
+                <name>Prednisone</name>
+                <price>1285.99</price>
                 <buyer-last-name>Baker</buyer-last-name>
             </product>
         </sold-products>
@@ -83,14 +83,14 @@
     <user first-name="Emily" last-name="Parker">
         <sold-products>
             <product>
-                <name>Glipizide and Metformin Hydrochloride</name>
-                <price>953.60</price>
+                <name>Benazepril Hydrochloride and Hydrochlorothiazide</name>
+                <price>1187.27</price>
                 <buyer-first-name>Emily</buyer-first-name>
                 <buyer-last-name>Parker</buyer-last-name>
             </product>
             <product>
-                <name>Benazepril Hydrochloride and Hydrochlorothiazide</name>
-                <price>1187.27</price>
+                <name>Glipizide and Metformin Hydrochloride</name>
+                <price>953.60</price>
                 <buyer-first-name>Emily</buyer-first-name>
                 <buyer-last-name>Parker</buyer-last-name>
             </product>
@@ -105,12 +105,6 @@
     <user first-name="Anna" last-name="Clark">
         <sold-products>
             <product>
-                <name>ESIKA 3-IN-1 PRO MAKE UP FOUNDATION SPF 20 BASE DE MAQUILLAJE PARA ROSTRO 3-EN-1 PRO FPS 20</name>
-                <price>1097.60</price>
-                <buyer-first-name>Anna</buyer-first-name>
-                <buyer-last-name>Clark</buyer-last-name>
-            </product>
-            <product>
                 <name>EMEND</name>
                 <price>1365.51</price>
                 <buyer-first-name>Anna</buyer-first-name>
@@ -119,6 +113,12 @@
             <product>
                 <name>smart sense nicotine</name>
                 <price>1444.12</price>
+                <buyer-first-name>Anna</buyer-first-name>
+                <buyer-last-name>Clark</buyer-last-name>
+            </product>
+            <product>
+                <name>ESIKA 3-IN-1 PRO MAKE UP FOUNDATION SPF 20 BASE DE MAQUILLAJE PARA ROSTRO 3-EN-1 PRO FPS 20</name>
+                <price>1097.60</price>
                 <buyer-first-name>Anna</buyer-first-name>
                 <buyer-last-name>Clark</buyer-last-name>
             </product>
@@ -146,14 +146,8 @@
     <user first-name="Betty" last-name="Ward">
         <sold-products>
             <product>
-                <name>PAMO Kill Natural</name>
-                <price>1181.06</price>
-                <buyer-first-name>Betty</buyer-first-name>
-                <buyer-last-name>Ward</buyer-last-name>
-            </product>
-            <product>
-                <name>DIVALPROEX SODIUM</name>
-                <price>1287.03</price>
+                <name>Acid Reducer</name>
+                <price>1443.51</price>
                 <buyer-first-name>Betty</buyer-first-name>
                 <buyer-last-name>Ward</buyer-last-name>
             </product>
@@ -164,14 +158,20 @@
                 <buyer-last-name>Ward</buyer-last-name>
             </product>
             <product>
-                <name>Acid Reducer</name>
-                <price>1443.51</price>
+                <name>Budpak Hemorrhoid Anesthetic</name>
+                <price>1499.29</price>
                 <buyer-first-name>Betty</buyer-first-name>
                 <buyer-last-name>Ward</buyer-last-name>
             </product>
             <product>
-                <name>Budpak Hemorrhoid Anesthetic</name>
-                <price>1499.29</price>
+                <name>PAMO Kill Natural</name>
+                <price>1181.06</price>
+                <buyer-first-name>Betty</buyer-first-name>
+                <buyer-last-name>Ward</buyer-last-name>
+            </product>
+            <product>
+                <name>DIVALPROEX SODIUM</name>
+                <price>1287.03</price>
                 <buyer-first-name>Betty</buyer-first-name>
                 <buyer-last-name>Ward</buyer-last-name>
             </product>
@@ -193,14 +193,14 @@
     <user first-name="Arthur" last-name="Reynolds">
         <sold-products>
             <product>
-                <name>Ibuprofen</name>
-                <price>1088.04</price>
+                <name>XtraCare Foam Antibacterial Hand Wash</name>
+                <price>1251.97</price>
                 <buyer-first-name>Arthur</buyer-first-name>
                 <buyer-last-name>Reynolds</buyer-last-name>
             </product>
             <product>
-                <name>XtraCare Foam Antibacterial Hand Wash</name>
-                <price>1251.97</price>
+                <name>Ibuprofen</name>
+                <price>1088.04</price>
                 <buyer-first-name>Arthur</buyer-first-name>
                 <buyer-last-name>Reynolds</buyer-last-name>
             </product>
@@ -208,11 +208,6 @@
     </user>
     <user last-name="Moreno">
         <sold-products>
-            <product>
-                <name>Wintergreen Isopropyl Alcohol</name>
-                <price>1397.57</price>
-                <buyer-last-name>Moreno</buyer-last-name>
-            </product>
             <product>
                 <name>Isosorbide Mononitrate</name>
                 <price>789.91</price>
@@ -223,19 +218,24 @@
                 <price>976.65</price>
                 <buyer-last-name>Moreno</buyer-last-name>
             </product>
+            <product>
+                <name>Wintergreen Isopropyl Alcohol</name>
+                <price>1397.57</price>
+                <buyer-last-name>Moreno</buyer-last-name>
+            </product>
         </sold-products>
     </user>
     <user first-name="Gary" last-name="Stevens">
         <sold-products>
             <product>
-                <name>Pollens - Trees, Birch Mix</name>
-                <price>1153.54</price>
+                <name>Retin-A MICRO</name>
+                <price>995.98</price>
                 <buyer-first-name>Gary</buyer-first-name>
                 <buyer-last-name>Stevens</buyer-last-name>
             </product>
             <product>
-                <name>Retin-A MICRO</name>
-                <price>995.98</price>
+                <name>Pollens - Trees, Birch Mix</name>
+                <price>1153.54</price>
                 <buyer-first-name>Gary</buyer-first-name>
                 <buyer-last-name>Stevens</buyer-last-name>
             </product>
@@ -275,14 +275,14 @@
                 <buyer-last-name>Patterson</buyer-last-name>
             </product>
             <product>
-                <name>Butalbital, Aspirin and Caffeine</name>
-                <price>1010.98</price>
+                <name>Finasteride</name>
+                <price>1374.01</price>
                 <buyer-first-name>Christina</buyer-first-name>
                 <buyer-last-name>Patterson</buyer-last-name>
             </product>
             <product>
-                <name>Finasteride</name>
-                <price>1374.01</price>
+                <name>Butalbital, Aspirin and Caffeine</name>
+                <price>1010.98</price>
                 <buyer-first-name>Christina</buyer-first-name>
                 <buyer-last-name>Patterson</buyer-last-name>
             </product>
@@ -300,14 +300,14 @@
     <user first-name="Fred" last-name="Barnes">
         <sold-products>
             <product>
-                <name>Amitriptyline Hydrochloride</name>
-                <price>1453.96</price>
+                <name>Fosphenytoin Sodium</name>
+                <price>1334.06</price>
                 <buyer-first-name>Fred</buyer-first-name>
                 <buyer-last-name>Barnes</buyer-last-name>
             </product>
             <product>
-                <name>Fosphenytoin Sodium</name>
-                <price>1334.06</price>
+                <name>Amitriptyline Hydrochloride</name>
+                <price>1453.96</price>
                 <buyer-first-name>Fred</buyer-first-name>
                 <buyer-last-name>Barnes</buyer-last-name>
             </product>
@@ -316,14 +316,14 @@
     <user first-name="Jacqueline" last-name="Perez">
         <sold-products>
             <product>
-                <name>Lorazepam</name>
-                <price>1134.96</price>
+                <name>Ranitidine</name>
+                <price>926.64</price>
                 <buyer-first-name>Jacqueline</buyer-first-name>
                 <buyer-last-name>Perez</buyer-last-name>
             </product>
             <product>
-                <name>Ranitidine</name>
-                <price>926.64</price>
+                <name>Lorazepam</name>
+                <price>1134.96</price>
                 <buyer-first-name>Jacqueline</buyer-first-name>
                 <buyer-last-name>Perez</buyer-last-name>
             </product>
@@ -345,14 +345,14 @@
     <user first-name="Billy" last-name="Parker">
         <sold-products>
             <product>
-                <name>Americaine</name>
-                <price>1165.75</price>
+                <name>TYLENOL COLD MULTI-SYMPTOM DAYTIME</name>
+                <price>1010.81</price>
                 <buyer-first-name>Billy</buyer-first-name>
                 <buyer-last-name>Parker</buyer-last-name>
             </product>
             <product>
-                <name>TYLENOL COLD MULTI-SYMPTOM DAYTIME</name>
-                <price>1010.81</price>
+                <name>Americaine</name>
+                <price>1165.75</price>
                 <buyer-first-name>Billy</buyer-first-name>
                 <buyer-last-name>Parker</buyer-last-name>
             </product>
@@ -360,18 +360,6 @@
     </user>
     <user first-name="Doris" last-name="Cook">
         <sold-products>
-            <product>
-                <name>Acetaminophen, Chlorpheniramine Maleate, Dextromethorphan Hydrobromide, Phenylephrine Hydrochloride</name>
-                <price>1028.27</price>
-                <buyer-first-name>Doris</buyer-first-name>
-                <buyer-last-name>Cook</buyer-last-name>
-            </product>
-            <product>
-                <name>Aspen</name>
-                <price>1046.46</price>
-                <buyer-first-name>Doris</buyer-first-name>
-                <buyer-last-name>Cook</buyer-last-name>
-            </product>
             <product>
                 <name>Etoposide</name>
                 <price>1483.96</price>
@@ -384,13 +372,25 @@
                 <buyer-first-name>Doris</buyer-first-name>
                 <buyer-last-name>Cook</buyer-last-name>
             </product>
+            <product>
+                <name>Aspen</name>
+                <price>1046.46</price>
+                <buyer-first-name>Doris</buyer-first-name>
+                <buyer-last-name>Cook</buyer-last-name>
+            </product>
+            <product>
+                <name>Acetaminophen, Chlorpheniramine Maleate, Dextromethorphan Hydrobromide, Phenylephrine Hydrochloride</name>
+                <price>1028.27</price>
+                <buyer-first-name>Doris</buyer-first-name>
+                <buyer-last-name>Cook</buyer-last-name>
+            </product>
         </sold-products>
     </user>
     <user first-name="Sandra" last-name="Riley">
         <sold-products>
             <product>
-                <name>Dawn Ultra Antibacterial Hand</name>
-                <price>969.86</price>
+                <name>Topical 60 Sec Sodium Fluoride</name>
+                <price>1228.84</price>
                 <buyer-first-name>Sandra</buyer-first-name>
                 <buyer-last-name>Riley</buyer-last-name>
             </product>
@@ -401,8 +401,8 @@
                 <buyer-last-name>Riley</buyer-last-name>
             </product>
             <product>
-                <name>Topical 60 Sec Sodium Fluoride</name>
-                <price>1228.84</price>
+                <name>Dawn Ultra Antibacterial Hand</name>
+                <price>969.86</price>
                 <buyer-first-name>Sandra</buyer-first-name>
                 <buyer-last-name>Riley</buyer-last-name>
             </product>
@@ -448,13 +448,13 @@
                 <buyer-last-name>Bennett</buyer-last-name>
             </product>
             <product>
-                <name>Perrigo Benzoyl Peroxide</name>
-                <price>873.24</price>
+                <name>Moore Medical Sinus Pain and Pressure Relief</name>
+                <price>855.39</price>
                 <buyer-last-name>Bennett</buyer-last-name>
             </product>
             <product>
-                <name>Moore Medical Sinus Pain and Pressure Relief</name>
-                <price>855.39</price>
+                <name>Perrigo Benzoyl Peroxide</name>
+                <price>873.24</price>
                 <buyer-last-name>Bennett</buyer-last-name>
             </product>
         </sold-products>
@@ -471,13 +471,13 @@
     <user last-name="Thompson">
         <sold-products>
             <product>
-                <name>cough and sore throat</name>
-                <price>1482.68</price>
+                <name>Ondansetron</name>
+                <price>1249.76</price>
                 <buyer-last-name>Thompson</buyer-last-name>
             </product>
             <product>
-                <name>Ondansetron</name>
-                <price>1249.76</price>
+                <name>cough and sore throat</name>
+                <price>1482.68</price>
                 <buyer-last-name>Thompson</buyer-last-name>
             </product>
         </sold-products>
@@ -485,14 +485,14 @@
     <user first-name="Marie" last-name="Williamson">
         <sold-products>
             <product>
-                <name>Head and Shoulders Conditioner</name>
-                <price>1099.59</price>
+                <name>Metformin Hydrochloride</name>
+                <price>953.99</price>
                 <buyer-first-name>Marie</buyer-first-name>
                 <buyer-last-name>Williamson</buyer-last-name>
             </product>
             <product>
-                <name>Metformin Hydrochloride</name>
-                <price>953.99</price>
+                <name>Head and Shoulders Conditioner</name>
+                <price>1099.59</price>
                 <buyer-first-name>Marie</buyer-first-name>
                 <buyer-last-name>Williamson</buyer-last-name>
             </product>
@@ -550,14 +550,14 @@
     <user first-name="Jennifer" last-name="Riley">
         <sold-products>
             <product>
-                <name>pain relief</name>
-                <price>938.23</price>
+                <name>Fair Foundation SPF 15</name>
+                <price>1394.24</price>
                 <buyer-first-name>Jennifer</buyer-first-name>
                 <buyer-last-name>Riley</buyer-last-name>
             </product>
             <product>
-                <name>Fair Foundation SPF 15</name>
-                <price>1394.24</price>
+                <name>pain relief</name>
+                <price>938.23</price>
                 <buyer-first-name>Jennifer</buyer-first-name>
                 <buyer-last-name>Riley</buyer-last-name>
             </product>
@@ -576,6 +576,12 @@
     <user first-name="Christine" last-name="Gomez">
         <sold-products>
             <product>
+                <name>Warfarin Sodium</name>
+                <price>1379.79</price>
+                <buyer-first-name>Christine</buyer-first-name>
+                <buyer-last-name>Gomez</buyer-last-name>
+            </product>
+            <product>
                 <name>MEDICATED DANDRUFF</name>
                 <price>1351.02</price>
                 <buyer-first-name>Christine</buyer-first-name>
@@ -587,19 +593,13 @@
                 <buyer-first-name>Christine</buyer-first-name>
                 <buyer-last-name>Gomez</buyer-last-name>
             </product>
-            <product>
-                <name>Warfarin Sodium</name>
-                <price>1379.79</price>
-                <buyer-first-name>Christine</buyer-first-name>
-                <buyer-last-name>Gomez</buyer-last-name>
-            </product>
         </sold-products>
     </user>
     <user first-name="Jeremy" last-name="Woods">
         <sold-products>
             <product>
-                <name>Myristica Argentum Sinus Relief</name>
-                <price>904.52</price>
+                <name>Alcohol Free Antiseptic</name>
+                <price>1486.07</price>
                 <buyer-first-name>Jeremy</buyer-first-name>
                 <buyer-last-name>Woods</buyer-last-name>
             </product>
@@ -616,14 +616,14 @@
                 <buyer-last-name>Woods</buyer-last-name>
             </product>
             <product>
-                <name>PREMIER VALUE ALLERGY</name>
-                <price>1127.61</price>
+                <name>Myristica Argentum Sinus Relief</name>
+                <price>904.52</price>
                 <buyer-first-name>Jeremy</buyer-first-name>
                 <buyer-last-name>Woods</buyer-last-name>
             </product>
             <product>
-                <name>Alcohol Free Antiseptic</name>
-                <price>1486.07</price>
+                <name>PREMIER VALUE ALLERGY</name>
+                <price>1127.61</price>
                 <buyer-first-name>Jeremy</buyer-first-name>
                 <buyer-last-name>Woods</buyer-last-name>
             </product>
@@ -653,13 +653,13 @@
                 <buyer-last-name>Cunningham</buyer-last-name>
             </product>
             <product>
-                <name>leader pain reliever</name>
-                <price>1179.79</price>
+                <name>Triamterene and Hydrochlorothiazide</name>
+                <price>1416.59</price>
                 <buyer-last-name>Cunningham</buyer-last-name>
             </product>
             <product>
-                <name>Triamterene and Hydrochlorothiazide</name>
-                <price>1416.59</price>
+                <name>leader pain reliever</name>
+                <price>1179.79</price>
                 <buyer-last-name>Cunningham</buyer-last-name>
             </product>
             <product>
@@ -688,6 +688,12 @@
     <user first-name="Anna" last-name="Parker">
         <sold-products>
             <product>
+                <name>ESIKA</name>
+                <price>879.37</price>
+                <buyer-first-name>Anna</buyer-first-name>
+                <buyer-last-name>Parker</buyer-last-name>
+            </product>
+            <product>
                 <name>Pollens - Weeds and Garden Plants, Nettle Urtica dioica</name>
                 <price>782.77</price>
                 <buyer-first-name>Anna</buyer-first-name>
@@ -696,12 +702,6 @@
             <product>
                 <name>Azithromycin</name>
                 <price>813.87</price>
-                <buyer-first-name>Anna</buyer-first-name>
-                <buyer-last-name>Parker</buyer-last-name>
-            </product>
-            <product>
-                <name>ESIKA</name>
-                <price>879.37</price>
                 <buyer-first-name>Anna</buyer-first-name>
                 <buyer-last-name>Parker</buyer-last-name>
             </product>
@@ -720,12 +720,6 @@
     <user first-name="Gloria" last-name="Alexander">
         <sold-products>
             <product>
-                <name>LV-FX</name>
-                <price>820.87</price>
-                <buyer-first-name>Gloria</buyer-first-name>
-                <buyer-last-name>Alexander</buyer-last-name>
-            </product>
-            <product>
                 <name>SUMATRIPTAN SUCCINATE</name>
                 <price>1265.94</price>
                 <buyer-first-name>Gloria</buyer-first-name>
@@ -740,6 +734,12 @@
             <product>
                 <name>up and up temporary minor arthritis pain relief</name>
                 <price>1085.78</price>
+                <buyer-first-name>Gloria</buyer-first-name>
+                <buyer-last-name>Alexander</buyer-last-name>
+            </product>
+            <product>
+                <name>LV-FX</name>
+                <price>820.87</price>
                 <buyer-first-name>Gloria</buyer-first-name>
                 <buyer-last-name>Alexander</buyer-last-name>
             </product>
